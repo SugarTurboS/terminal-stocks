@@ -30,6 +30,19 @@ var stockIdList = ['sh601118','sh600684'];
 
 ![example](http://i1.tietuku.com/0362468b91cfde2f.png)
 
+##Proxy
+
+vim config.js
+
+```js
+proxy :{
+        used: false,
+        port: '',
+        host: '',
+        headerHost:''
+    },
+```
+
 ## Useful links
 
 - [Sina's Stock API](http://blog.csdn.net/simon803/article/details/7784682)
