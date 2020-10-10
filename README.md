@@ -1,52 +1,34 @@
-# terminal-stocks
-This is a demo that you can view stocks in terminal.
-We use Sina Stock API.
+<h1 align="center">Welcome to terminal-stocks 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-## How to use
+> A tool that allows you to watch stocks on the console.
 
-First copy the repo into your disk.
+## Install
 
-```bash
-$ git clone git@github.com:ForeverPx/terminal-stocks.git
+```sh
+npm install
 ```
 
-then
+## Usage
 
-```bash
-$ npm install
-
-$ node app.js
+```sh
+node app.js
 ```
 
-## Add your stocks
+## Author
 
-Edit app.js, you can find the array named 'stockIdList', you can add your stock code in it.
+👤 **ForeverPx**
 
-example
+* Github: [@ForeverPx](https://github.com/ForeverPx)
 
-```js
-var stockIdList = ['sh601118','sh600684'];
-```
+## Show your support
 
-![example](http://i1.tietuku.com/0362468b91cfde2f.png)
+Give a ⭐️ if this project helped you!
 
-##Proxy
-
-vim config.js
-
-```js
-proxy :{
-        used: false,
-        port: '',
-        host: '',
-        headerHost:''
-    },
-```
-
-## Useful links
-
-- [Sina's Stock API](http://blog.csdn.net/simon803/article/details/7784682)
-
-## License
-
-MIT licensed
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

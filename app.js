@@ -1,22 +1,22 @@
 //Global var
-var request = require('request');
-var colors = require('colors');
-var iconv = require('iconv-lite');
-var exec = require('child_process').exec;
-var http = require('http');
-var config = require('./config');
-var BufferHelper = require('bufferhelper');
+const request = require('request');
+const colors = require('colors');
+const iconv = require('iconv-lite');
+const exec = require('child_process').exec;
+const http = require('http');
+const config = require('./config');
+const BufferHelper = require('bufferhelper');
 
-var space = {
+const space = {
     s2: "  ",
     s4: "    ",
     s8: "        ",
     s16: "                "
 };
 
-var stockIdList = config.stocks;
+const stockIdList = config.stocks;
 
-var stockResultList = [];
+let stockResultList = [];
 
 function renderList() {
     console.log('股票名称' +
@@ -30,12 +30,12 @@ function renderList() {
         '今日最高' +
         space.s4 +
         '今日最低');
-    for (var i = 0; i < stockResultList.length; i++) {
-        var item = stockResultList[i];
-        var rate = 0.00;
-        var rateText = '0.00%';
+    for (let i = 0; i < stockResultList.length; i++) {
+        const item = stockResultList[i];
+        let rate = 0.00;
+        let rateText = '0.00%';
         if (item[3] != 0) {
-            var dif = item[3] - item[2];
+            let dif = item[3] - item[2];
             if (dif >= 0) {
                 rate = (dif / item[2] * 100).toFixed(2);
                 rateText = colors.red(rate + '%');
@@ -61,7 +61,7 @@ function renderList() {
 }
 
 function formatStr(data) {
-    var str = '';
+    let str = '';
     str += colors.yellow(data.stockinfo.name);
     str += space.s2 + data.stockinfo.date;
     str += '\n';
@@ -69,14 +69,14 @@ function formatStr(data) {
 }
 
 function getData() {
-    var process = 0;
+    let process = 0;
     stockResultList = [];
     clear();
-    for (var i = stockIdList.length - 1; i >= 0; i--) {
-        var item = stockIdList[i];
-        var urlStr = config.api;
+    for (let i = stockIdList.length - 1; i >= 0; i--) {
+        const item = stockIdList[i];
+        let urlStr = config.api;
         urlStr = urlStr + item;
-        var url = require('url').parse(urlStr);
+        const url = require('url').parse(urlStr);
         if(config.proxy.used){
             url.host = config.proxy.host;
             url.port = config.proxy.port;
@@ -85,16 +85,16 @@ function getData() {
             }
         }
         http.get(url, function (res) {
-            var bufferHelper = new BufferHelper();
+            const bufferHelper = new BufferHelper();
             res.on('data', function (chunk) {
                 bufferHelper.concat(chunk);
             });
             res.on('end', function () {
                 //console.log();
                 process = process + 1;
-                var str = iconv.decode(bufferHelper.toBuffer(), 'GBK');
+                let str = iconv.decode(bufferHelper.toBuffer(), 'GBK');
                 str = str.substring(str.indexOf("\"") + 1, str.lastIndexOf("\""));
-                var arr = str.split(',');
+                let arr = str.split(',');
                 stockResultList.push(arr);
                 if (process == stockIdList.length) {
                     renderList();
@@ -109,7 +109,7 @@ function getData() {
 }
 
 function clear() {
-    var stdout = "";
+    let stdout = "";
 
     // if (process.platform.indexOf("win") != 0) {
     //     stdout += "\033[2J";

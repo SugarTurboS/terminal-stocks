@@ -1,14 +1,14 @@
 {
-  "name": "GP",
+  "name": "terminal-stocks",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "supervisor app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "request": "^2.51.0",
-    "colors":"*",
-    "iconv-lite":"*",
-    "bufferhelper":"*"
+    "colors": "*",
+    "iconv-lite": "*",
+    "bufferhelper": "*"
   }
 }

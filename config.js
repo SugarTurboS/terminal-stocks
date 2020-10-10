@@ -1,7 +1,4 @@
-/**
- * Created by panxiao on 15/9/1.
- */
-var config = {
+const config = {
     api:'http://hq.sinajs.cn/list=',
 
     proxy :{
