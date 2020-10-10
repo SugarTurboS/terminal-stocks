@@ -20,6 +20,10 @@ npm install
 node app.js
 ```
 
+## Overview
+
+![https://github.com/SugarTurboS/terminal-stocks/blob/master/assets/demos.png](https://github.com/SugarTurboS/terminal-stocks/blob/master/assets/demos.png)
+
 ## Author
 
 👤 **ForeverPx**
